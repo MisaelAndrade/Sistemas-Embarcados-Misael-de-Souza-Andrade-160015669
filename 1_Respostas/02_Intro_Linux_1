@@ -51,4 +51,4 @@
     cmp [arquivo1] [arquivo2]
     diff [arquivo1] [arquivo2] (para arquivos de texto)
   (t) Escrever algo na tela.
-    
+    echo [escrita]
