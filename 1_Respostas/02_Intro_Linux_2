@@ -24,6 +24,7 @@ Para as questões a seguir, use a pasta no endereço https://github.com/DiogoCae
     9. Liste somente os arquivos com extensão .gif.
 
     10. Liste somente os arquivos que contenham o nome 'cal'.
+        ls - la *cal*
 
     11. Liste somente os arquivos que contenham o nome 'tux'.
 
