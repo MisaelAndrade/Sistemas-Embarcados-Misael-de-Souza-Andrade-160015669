@@ -65,4 +65,23 @@ https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Aulas/01_Si
 
 Estes são links para slides de 3 aulas desta dsciplina, um para cada linha do arquivo _sites.txt_. Faça um script que faz o download destes slides automaticamente, a partir do arquivo _sites.txt_. (DICA: use o comando wget.)
 
+```bash
+#!/bin/bash
+wget -i sites.txt
+echo "Slides baixados para pasta atual!"
+
+```
+
 5. Faça um script chamado _up.sh_ que sobe _N_ níveis na pasta onde você estiver, usando $1 como parâmetro de entrada. Por exemplo, se você estiver em **/home/aluno/Documents** e executar **./up.sh 2**, você automaticamente vai para a pasta **/home**.
+```bash
+#!/bin/bash
+niveis=$1
+comando="cd ..;"
+i=1
+while [ $i -le $niveis ]; do
+  comando=$comando
+  i=$((i+1))
+done
+$comando
+
+```
