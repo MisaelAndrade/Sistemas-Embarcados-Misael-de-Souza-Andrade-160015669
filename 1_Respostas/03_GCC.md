@@ -268,6 +268,7 @@ Argumento: mesmo / Número de caracteres: 5
 
 ```
 10. Crie um Makefile para a questão anterior.
+
 Makefile:
 ```
 num_caracs: ola_num_caracs_1.o num_caracs.o
@@ -296,5 +297,50 @@ Argumento: mesmo / Número de caracteres: 5
 $ ./ola_num_caracs_2 Eu Mesmo
 $ Total de caracteres de entrada: 25
 ```
+Código ola_num_caracs_2
+```c
+#include<stdio.h>
+#include"num_caracs.h"
+
+int main( int argc, char *argv[] )
+{
+        int i;
+        int num_total=0;
+        for (i=0; i < argc; i++){
+                num_total = num_total + Num_Caracs(argv[i]);
+        }
+        printf("Total de caracteres de entrada: %d \n", num_total);
+
+        return 0;
+}
+```
+compilando e eecutando programa utilizando o num_caracs.o
+```bash
+$ gcc -o ola_num_caracs_2 num_caracs.o ola_num_caracs_2.c
+$ ./ola_num_caracs_2 Eu mesmo
+
+Saída:
+Total de caracteres de entrada: 25
+```
 
 12. Crie um Makefile para a questão anterior.
+
+Makefile:
+```
+num_caracs: ola_num_caracs_2.o num_caracs.o
+	gcc $(CFLAGS) -o num_caracs ola_num_caracs_2.o num_caracs.o
+ola_num_caracs_2.o: ola_num_caracs_2.c num_caracs.h
+	gcc $(CFLAGS) -c ola_num_caracs_2.c
+num_caracs.o: num_caracs.c num_caracs.h
+	gcc $(CFLAGS) -c num_caracs.c
+clean:
+	rm -f *.o num_caracs
+```
+Comandos para rodar make file e executar prorama criado:
+```bash
+$ make
+$ ./num_caracs Eu mesmo
+
+Saída:
+Total de caracteres de entrada: 19
+```
